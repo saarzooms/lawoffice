@@ -244,7 +244,13 @@ include('db/connection.php');
 <script src="js/buttons.print.min.js"></script>
 <script src="js/buttons.colVis.min.js"></script>
 <script src="js/callcenter.js"></script>
+ <script>
+$(document).ready(function() {
+    $("#frmdt").datepicker();
+    $("#todt").datepicker();
+  });
  
+</script> 
  <script>
     // Closes the sidebar menu
     $("#menu-close").click(function(e) {
