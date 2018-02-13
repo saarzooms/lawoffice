@@ -43,9 +43,15 @@ include('db/connection.php');
 						<div class="form-group">
 							<select class="form-control input-sm" id="staff" name="staff">
 											<option value="0" selected disabled>---Select Staff---</option>
-											<option value="1">staff-1</option>
-											<option value="2">staff-2</option>
-											<option value="3">staff-3</option>
+							<?php		
+								$sel="select name,id from staff_master";
+								foreach($dbh->query($sel) as $name)	
+								{
+									echo "<option value=".$name['id'].">".$name['name']."</option>";
+						
+								}
+							?>	
+											
 							</select>
 						</div>
 					</div>
