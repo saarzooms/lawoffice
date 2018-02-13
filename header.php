@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('db/connection.php');
-
+date_default_timezone_set('Asia/Kolkata');
 	$name='';
 	if(isset($_SESSION['id']))
 	{
@@ -84,7 +84,7 @@ $roll="";
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href=""><b style="color:blue;">LAW OFFICE<h5 style="color:blue;"><?php echo $name.' '.date('d-m-Y H:m:i');?></h5></b></a><br/>
+      <a class="navbar-brand" href=""><b style="color:blue;">LAW OFFICE<h5 style="color:blue;"><?php echo $name.' '.date('d-m-Y h:i:s a');?></h5></b></a><br/>
 	 
     </div>
 
