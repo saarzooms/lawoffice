@@ -1,0 +1,174 @@
+@charset "utf-8";
+/* CSS Document */
+/* Nav */
+
+
+body {
+	/*background-image:url(../img/roomtexture.png);*/
+
+	
+	background-size:cover;
+	
+	
+}
+.form-controljagyaniche{ margin-bottom:10px; }
+
+
+
+
+
+
+#login-dp{
+    min-width: 250px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:rgba(255,255,255,.8);
+}
+#login-dp .help-block{
+    font-size:12px    
+}
+#login-dp .bottom{
+    background-color:rgba(255,255,255,.8);
+    border-top:1px solid #ddd;
+    clear:both;
+    padding:14px;
+}
+#login-dp .social-buttons{
+    margin:12px 0    
+}
+#login-dp .social-buttons a{
+    width: 49%;
+}
+#login-dp .form-group {
+    margin-bottom: 10px;
+}
+.btn-fb{
+    color: #fff;
+    background-color:#3b5998;
+}
+.btn-fb:hover{
+    color: #fff;
+    background-color:#496ebc 
+}
+.btn-tw{
+    color: #fff;
+    background-color:#55acee;
+}
+.btn-tw:hover{
+    color: #fff;
+    background-color:#59b5fa;
+}
+@media(max-width:768px){
+    #login-dp{
+        background-color: inherit;
+        color: #fff;
+    }
+    #login-dp .bottom{
+        background-color: inherit;
+        border-top:0 none;
+    }
+}
+/* end nav */
+/* start biji line */
+.secondlinestyle{
+
+	margin-top:-20px;
+	
+	}
+
+#bs-example-navbar-collapse-1 li a {
+	padding-right:50px;
+	
+	}
+/* end biji line*/
+
+
+
+/*Item Page Css*/
+
+.jagyaniche {
+	padding-bottom:15px;
+	
+	} 
+
+
+/*navbar start*/
+
+.navbar-custom {
+	background-color:#d29a72;
+    color:#ffffff;
+  	border-radius:0;
+}
+.navbar-custom .navbar-header > a {
+	font-size:20px;
+	font-weight:bold;
+	
+	}  
+	
+.navbar-custom .navbar-header > .active > a, .navbar-header > .active > a:hover, .navbar-header > .active > a:focus {
+    color: #ffffff;
+	background-color:transparent;
+}
+
+.navbar-custom .navbar-nav > li > a {
+  	color:#fff;
+  	padding-left:20px;
+  	padding-right:20px;
+	font-size:16px;
+	font-weight:bold;
+}
+.navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+    color: #ffffff;
+	background-color:transparent;
+}
+      
+.navbar-custom .navbar-nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color:#ffe0c5;
+}
+      
+.navbar-custom .navbar-brand {
+  	color:#eeeeee;
+}
+.navbar-custom .navbar-toggle {
+  	background-color:#eeeeee;
+}
+.navbar-custom .icon-bar {
+  	background-color:#33aa33;
+}
+/*end navbar*/
+
+
+/* jumbotron start*/
+
+.jumbotron {
+	background-color: #90C3D4;
+	background-image: url(../img/cremetexture.jpg);
+	background-size:cover;
+	
+	
+	
+	}
+.jumbotron h1,p {
+	color:white;
+	}
+.jumbotroninside {
+	background-color:#FBFBFB;	
+	}
+	
+.jumbotroninside{
+	background-image: url(../img/book4.jpg);
+	background-size:cover;
+
+	
+	color: #FCFCFC;
+	}
+	
+.jumbotronfooter{
+background-color:#FBFBFB;
+	}
+/*end jumbotron*/
+/*font start*/
+
+/*end font*/
+
