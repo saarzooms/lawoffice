@@ -48,7 +48,7 @@ include('db/connection.php');
 											<option value="0" selected disabled>---Select Department---</option>
 											<option value="1">call-center</option>
 											<option value="2">levy</option>
-											<option value="3">secreteriatcan</option>
+											<option value="3">secreteriat</option>
 										</select>
 								</div>
 							</div>

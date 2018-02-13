@@ -126,6 +126,7 @@ $roll="";
 		<ul class="nav navbar-nav navbar-right">
 			<li><a href="changepassword.php">Change Password</a></li>
 			<li><a href="logout.php?logout" >Logout</a></li>
+			<li><a href="" ><h5 style="color:blue;"><?php echo $name.' '.date('d-m-Y H:m:i');?></h5></a></li>
 		</ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
