@@ -36,37 +36,47 @@ include('db/connection.php');
 			<div style="padding-top:30px" class="panel-body" >
 			
 			<div class="box-body" id="dl_details">
-			
+			<form id="rep_form" action="search.php" method="post">
            		<div class="col-md-12">
 					<div class="col-md-3">
 						<label for="staff">Select Staff:</label>
 						<div class="form-group">
 							<select class="form-control input-sm" id="staff" name="staff">
 											<option value="0" selected disabled>---Select Staff---</option>
-											<option value="1">staff-1</option>
-											<option value="2">staff-2</option>
-											<option value="3">staff-3</option>
+							<?php		
+								$sel="select name,id from staff_master";
+								foreach($dbh->query($sel) as $name)	
+								{
+									echo "<option value=".$name['id'].">".$name['name']."</option>";
+						
+								}
+							?>	
+											
 							</select>
 						</div>
+						<label id="s_nm" style="color:red;"></label>
 					</div>
 					<div class="col-md-3">
 							<label for="frmdt">From Date:</label>
 							<div class="form-group">
 								<input  class="form-control input-sm dt" id="frmdt" name="frmdt" placeholder="Select From Date">
 							</div>
+							<label id="f_d" style="color:red;"></label>
 					</div>
 					<div class="col-md-3">
 							<label for="todt">To Date:</label>
 							<div class="form-group">
 								<input  class="form-control input-sm dt" id="todt" name="todt" placeholder="Select To Date">
-					</div>
+							</div>
+							<label id="t_d" style="color:red;"></label>
 					</div>
 					<div class="col-md-3">
-						<button type="button" class="btn btn-primary btn-md" id="btn_search" style="margin-top:20px;"><b class="class1">Search</b></button>
+						<button type="submit" class="btn btn-primary btn-md" id="btn_search" onclick="return validate()" style="margin-top:20px;"><b class="class1">Search</b></button>
 						
 					</div>
 							
 				</div>
+			</form>	
 				<form id="report_form" method="post">
 				<div class="col-md-12">
 						<div class="col-md-8">

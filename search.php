@@ -28,7 +28,7 @@ include('db/connection.php');
        <div class="panel-heading" style="height:60px;">
                <div class="col-md-12">						
 					<div  class="col-md-6">	
-						<h4><b>Report Entry</b></h4>
+						<h4><b>Report Details</b></h4>
 					</div>
 					
 					</div>
@@ -36,16 +36,22 @@ include('db/connection.php');
 			<div style="padding-top:30px" class="panel-body" >
 			
 			<div class="box-body" id="dl_details">
-			
-           		<div class="col-md-12">
+			<form id="rep_form" action="search.php" method="post">
+			<div class="col-md-12">
 					<div class="col-md-3">
 						<label for="staff">Select Staff:</label>
 						<div class="form-group">
 							<select class="form-control input-sm" id="staff" name="staff">
 											<option value="0" selected disabled>---Select Staff---</option>
-											<option value="1">staff-1</option>
-											<option value="2">staff-2</option>
-											<option value="3">staff-3</option>
+							<?php		
+								$sel="select name,id from staff_master";
+								foreach($dbh->query($sel) as $name)	
+								{
+									echo "<option value=".$name['id'].">".$name['name']."</option>";
+						
+								}
+							?>	
+											
 							</select>
 						</div>
 					</div>
@@ -62,25 +68,65 @@ include('db/connection.php');
 							</div>
 					</div>
 					<div class="col-md-3">
-						<button type="button" class="btn btn-primary btn-md" id="btn_search" style="margin-top:20px;"><b class="class1">Search</b></button>
+						<button type="submit" class="btn btn-primary btn-md" id="btn_search" style="margin-top:20px;"><b class="class1">Search</b></button>
 						
 					</div>
 							
 				</div>
+				</form>
 				<div id="dl_data">
-			<center><h3>DATE RANGE   JANUARY 11, 2017  -  MARCH 15, 2018</h3></center>
+				<?php
+				if(isset($_POST['staff']) && isset($_POST['frmdt']) && isset($_POST['todt'])){
+				?>
+			<center><h3><span style="color:red;">DATE RANGE </span>  <?php echo date('F d,Y',strtotime($_POST['frmdt']));?> <span style="color:red;"> - </span><?php echo date('F d,Y',strtotime($_POST['todt'])); ?></h3></center>
 			<table id="example" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 				<thead>
 					<tr>
-						<th>Today Report</th> 
+						<th>Date</th>  		
+						 
 						<th>Description</th> 
-						<th>Date</th>  			
+							
 						
 					</tr>
 				</thead>
 			   <tbody>
+			   <?php
+					
+					$name=$_POST['staff'];
+					date_default_timezone_set('Asia/Kolkata');
+	
+					$fdt=date('Y-m-d',strtotime($_POST['frmdt']));
+					$tdt=date('Y-m-d',strtotime($_POST['todt']));
+					
+					// $que="1";
+					// if($name!='0')
+					// {
+						// $que=$que." and staff_id=$name";
+					// }
+					// if($fdt!='')
+					// {
+						// $que=$que." and date between $name";
+					// }
+					// if($name!='0')
+					// {
+						// $que=$que." and staff_id=$name";
+					// }
+					
+					$sel="select * from report_master where staff_id='$name' and DATE(date) between '$fdt' and '$tdt'";
+					foreach($dbh->query($sel) as $row)
+					{
+						echo "<tr>";
+						echo "<td>".date('F d, Y h:i:s A',strtotime($row['date']))."</td>";
+						
+						echo "<td>".$row['note']."</td>";
+						
+						echo "</tr>";
+					}
+					}
+			   ?>
 			   </tbody>
 			</table>
+
 		  </div>
       </div>                     
      </div>  
