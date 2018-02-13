@@ -109,7 +109,7 @@ else if(isset($_REQUEST['ins_no1']))
 else if(isset($_REQUEST['sec']))
 {	
 	$date=date("Y-m-d");
-	$sel="select report_master.*,staff_master.name from `report_master` inner join staff_master on staff_master.id=report_master.staff_id inner join department_master on staff_master.department_id=department_master.id where DATE(report_master.date)='$date' and department_master.department_name='secreteriatcan'";
+	$sel="select report_master.*,staff_master.name from `report_master` inner join staff_master on staff_master.id=report_master.staff_id inner join department_master on staff_master.department_id=department_master.id where DATE(report_master.date)='$date' and department_master.department_name='secreteriat'";
 	foreach($dbh->query($sel) as $row)
 	{
 		?>
