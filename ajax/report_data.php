@@ -11,7 +11,7 @@ if(isset($_REQUEST['note']) )
 	$date=date("Y-m-d h:i:s A");
 
 	$ins="INSERT INTO `report_master`(`staff_id`, `note`, `date`) 
-	VALUES ('5','$note','$date')";	
+	VALUES ('".$_SESSION['id']."','$note','$date')";	
 	if($dbh->query($ins))
 	{
 		echo "Data Inserted Successfully";
@@ -26,7 +26,7 @@ if(isset($_REQUEST['note']) )
 	$date=date("Y-m-d h:i:s A");
 
 	$ins="INSERT INTO `how_many_customers_were_called`(`staff_id`, `cust_called_no`, `note`, `date`) 
-	VALUES ('5','$custno','$note','$date')";	
+	VALUES ('".$_SESSION['id']."','$custno','$note','$date')";	
 	if($dbh->query($ins))
 	{
 		echo "Data Inserted Successfully";
@@ -57,7 +57,7 @@ else if(isset($_REQUEST['ins_no']) && isset($_REQUEST['t_payment']) && isset($_R
 else if(isset($_REQUEST['dl']))
 {	$i=1;
 	$date=date("Y-m-d");
-	$sel="select * from `report_master` where DATE(date)='$date' order by `id`";
+	$sel="select * from `report_master` where DATE(date)='$date' and staff_id='".$_SESSION['id']."' order by `id`";
 	foreach($dbh->query($sel) as $row)
 	{
 		?>
