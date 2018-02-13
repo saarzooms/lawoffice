@@ -36,7 +36,7 @@ include('db/connection.php');
 			<div style="padding-top:30px" class="panel-body" >
 			
 			<div class="box-body" id="dl_details">
-			
+			<form id="rep_form" action="callcentersearch.php" method="post">
            		<div class="col-md-12">
 					<div class="col-md-3">
 						<label for="staff">Select Staff:</label>
@@ -54,25 +54,29 @@ include('db/connection.php');
 											
 							</select>
 						</div>
+						<label id="s_nm" style="color:red;"></label>
 					</div>
 					<div class="col-md-3">
 							<label for="frmdt">From Date:</label>
 							<div class="form-group">
 								<input  class="form-control input-sm dt" id="frmdt" name="frmdt" placeholder="Select From Date">
 							</div>
+							<label id="f_d" style="color:red;"></label>
 					</div>
 					<div class="col-md-3">
 							<label for="todt">To Date:</label>
 							<div class="form-group">
 								<input  class="form-control input-sm dt" id="todt" name="todt" placeholder="Select To Date">
 							</div>
+							<label id="t_d" style="color:red;"></label>
 					</div>
 					<div class="col-md-3">
-						<button type="button" class="btn btn-primary btn-md" id="btn_search" style="margin-top:20px;"><b class="class1">Search</b></button>
+						<button type="submit" class="btn btn-primary btn-md" id="btn_search" onclick="return validate()" style="margin-top:20px;"><b class="class1">Search</b></button>
 						
 					</div>
 							
 				</div>
+			</form>
 				<div class="col-md-12">
 					<div class="col-md-4">
 					</div>
@@ -206,7 +210,7 @@ include('db/connection.php');
 			<div class="col-md-11" id="payment_table" style="display:none;margin-top:10px;">
 					<label style="color:blue">Search For Number :</label>&nbsp;<label style="color:red" id="search_no"> </label>
 					
-					<table class="table table-bordered table-stripped">
+					<table id="example" class="table table-bordered table-stripped">
 						<thead>
 							<tr>
 								<th>Staff Name</th>
@@ -248,6 +252,7 @@ include('db/connection.php');
 $(document).ready(function() {
     $("#frmdt").datepicker();
     $("#todt").datepicker();
+	$('#example').DataTable();
   });
  
 </script> 

@@ -56,7 +56,7 @@ if($user_status=='admin')
 ?>
    <div id="dl_data" class="col-md-8">
    <h2>Today Report Of Mine </h3>
-			<table id="example" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+			<table id="" class="table table-striped table-bordered table-hover display" cellspacing="0" width="100%">
 				<thead>
 					<tr>
 						<th>Staff Name</th> 
@@ -81,7 +81,7 @@ if($user_status=='admin')
 	
 	<div id="dl_data" class="col-md-8">
    <h2>Today How Many Customer Called</h3>
-			<table id="example" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+			<table id="" class="table table-striped table-bordered table-hover display" cellspacing="0" width="100%">
 				<thead>
 					<tr>
 						<th>Staff Name</th> 
@@ -109,7 +109,7 @@ if($user_status=='admin')
 	
 	<div id="dl_data" class="col-md-8">
    <h2>Today Payment History</h3>
-			<table id="example" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+			<table id="" class="table table-striped table-bordered table-hover display" cellspacing="0" width="100%">
 				<thead>
 					<tr>
 						<th>Staff Name</th> 
@@ -168,9 +168,26 @@ if($user_status=='admin')
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/css3-animate-it.js"></script>
-
+	<script src="js/jquery.dataTables.min.js"></script>
+		<script src="js/dataTables.bootstrap.min.js"></script>
+<script src="js/dataTables.buttons.min.js"></script>
+<script src="js/buttons.bootstrap.min.js"></script>
+<script src="js/jszip.min.js"></script>
+<script src="js/pdfmake.min.js"></script>
+<script src="js/vfs_fonts.js"></script>
+<script src="js/buttons.html5.min.js"></script>
+<script src="js/buttons.print.min.js"></script>
+<script src="js/buttons.colVis.min.js"></script>
+	
+	<script>
+	$(document).ready(function() {
+    $('table.display').DataTable();
+  });
+	</script>
     <!-- Custom Theme JavaScript -->
     <script>
+	
+	
     // Closes the sidebar menu
     $("#menu-close").click(function(e) {
         e.preventDefault();

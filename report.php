@@ -173,6 +173,7 @@ include('db/connection.php');
 $(document).ready(function() {
     $("#frmdt").datepicker();
     $("#todt").datepicker();
+	$('table.display').DataTable();
   });
  
 </script> 
