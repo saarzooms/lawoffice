@@ -144,8 +144,16 @@ include('db/connection.php');
 							<div class="form-group">
 								<label for="note">Institution Number:</label>
 								<input type="text" class="form-control" id="ins_no" name="ins_no" required>
-								</div>
+							</div>
+							<label style="color:red;" id="msg_ins"></label>	
 						</div>		
+						
+						<div class="col-md-3">
+							<div class="form-group">
+								<label for="note">Institution Name:</label>
+								<input type="text" class="form-control" id="ins_name" name="ins_name" required>
+							</div>
+						</div>	
 						
 						<div class="col-md-3">
 							<div class="form-group">
@@ -160,16 +168,19 @@ include('db/connection.php');
 								<input type="text" class="form-control" id="money_rec" name="money_rec" required>
 								</div>
 						</div>	
+						
 							
+							
+				</div>
+				
+				<div class="col-md-12">
 						<div class="col-md-3">
 							<div class="form-group">
 								<label for="note">Payment Deadline:</label>
 								<textarea class="form-control" id="deadline" name="deadline" rows="2" required></textarea>
 								</div>
-						</div>			
-				</div>
-				
-				<div class="col-md-12">
+						</div>		
+						
 						<div class="col-md-3">
 							<div class="form-group">
 								<label for="note">Institution Doc.Status :</label>
@@ -210,7 +221,7 @@ include('db/connection.php');
 			<div class="col-md-11" id="payment_table" style="display:none;margin-top:10px;">
 					<label style="color:blue">Search For Number :</label>&nbsp;<label style="color:red" id="search_no"> </label>
 					
-					<table id="example" class="table table-bordered table-stripped">
+					<table id="example" class="table table-bordered table-stripped display">
 						<thead>
 							<tr>
 								<th>Staff Name</th>
@@ -226,7 +237,73 @@ include('db/connection.php');
 						<tbody id="t_body">
 						</tbody>
 					</table>
-				</div>
+			</div>
+			
+			<div id="dl_data" class="col-md-8">
+				<h2>Today All Staff Reports </h3>
+				
+						<table id="" class="table table-striped table-bordered table-hover display" cellspacing="0" width="100%">
+							<thead>
+								<tr>
+									<th>Staff Name</th> 
+									 <th>Note</th>
+									 <th>Date</th>
+								</tr>
+							</thead>
+						   <tbody id="rep_body">
+							
+						   </tbody>
+						</table><br/>
+			</div>
+
+			<div id="dl_data" class="col-md-8">
+					<h2>Today How Many Customer Called</h3>
+						<table id="" class="table table-striped table-bordered table-hover display" cellspacing="0" width="100%">
+							<thead>
+								<tr>
+									<th>Staff Name</th> 
+									 <th>Cust_Called_No</th>
+									 <th>Note</th>
+									 <th>Date</th>
+									
+								</tr>
+							</thead>
+						   <tbody id="rep2_body">
+							
+						   </tbody>
+						</table><br/>
+			</div>
+			
+			
+				<div id="dl_data" class="col-md-8">
+					<h2>Today Payment History</h3>
+						<table id="" class="table table-striped table-bordered table-hover display" cellspacing="0" width="100%">
+							<thead>
+								<tr>
+									<th>Staff Name</th> 
+									 <th>Inst Number</th>
+									 <th>Inst Name</th>
+									 <th>Total Payment</th>
+									 <th>Money Received</th>
+									 <th>Payment Deadline</th>
+									 <th>Doc Status</th>
+									 <th>Note</th>
+									 <th>Date</th>
+									 
+									
+								</tr>
+							</thead>
+						   <tbody id="rep3_body">
+							
+						   </tbody>
+						</table><br/>
+					</div>	
+				
+				
+
+		  </div>
+			
+				
      </div>  
 			
 				
@@ -252,7 +329,7 @@ include('db/connection.php');
 $(document).ready(function() {
     $("#frmdt").datepicker();
     $("#todt").datepicker();
-	$('#example').DataTable();
+	$('table.display').DataTable();
   });
  
 </script> 
