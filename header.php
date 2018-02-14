@@ -121,10 +121,20 @@ $roll="";
 			{	
 		?>
 			<li><a id="call_report" href="callcenterreport.php">Call Center Report</a></li>
-			<li><a id="institution" href="institution.php">Institution Master</a></li>
+			
 		<?php
 			}
 		?>
+		<?php
+			if($_SESSION['type']=="call-center" && $_SESSION['status']!='admin')
+			{	
+		?>
+			<li><a id="institution" href="institution.php">Institution Master</a></li>
+			
+		<?php
+			}
+		?>
+		
 		</ul>			
 		<ul class="nav navbar-nav navbar-right">
 			<li><a href="changepassword.php">Change Password</a></li>
