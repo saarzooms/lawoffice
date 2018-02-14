@@ -84,7 +84,7 @@ $roll="";
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href=""><b style="color:blue;">LAW OFFICE<h5 style="color:blue;"><?php echo $name.' '.date('d-m-Y h:i:s a');?></h5></b></a><br/>
+      <a class="navbar-brand" href=""><b style="color:blue;">LAW OFFICE<h5 style="color:blue;"><?php echo '<Strong style="color:#fff;">'.$name.'</strong>'.' '.date('F d, Y h:i:s A l');?></h5></b></a><br/>
 	 
     </div>
 
@@ -93,11 +93,12 @@ $roll="";
     
 		<ul class="nav navbar-nav navbar-left">
 		
-			<li><a id="index" href="index.php">Dashboard</a></li>
+			
 		<?php
 			if($_SESSION['status']=="admin")
 			{	
 		?>
+			<li><a id="index" href="index.php">Dashboard</a></li>
 			<li><a id="staff" href="staff.php">Staff Master</a></li>
 			<li><a id="institution" href="institution.php">Institution Master</a></li>
 			<li><a id="department" href="department.php">Department Master</a></li>
@@ -110,6 +111,7 @@ $roll="";
 			{	
 		?>
 			<li><a id="report" href="report.php">Report</a></li>
+			
 		<?php
 			}
 		?>
@@ -119,6 +121,7 @@ $roll="";
 			{	
 		?>
 			<li><a id="call_report" href="callcenterreport.php">Call Center Report</a></li>
+			<li><a id="institution" href="institution.php">Institution Master</a></li>
 		<?php
 			}
 		?>

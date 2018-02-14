@@ -13,19 +13,39 @@ $(document).ready(function(){
 			success:function(data)
 			{
 				//alert(data);
-				if(data==0)
+				var arr=eval(data);
+				
+				if(arr[0]==0)
 				{
 					$("#email").val('');
 					$("#password").val('');
 					$("#msg").html("Invalid Email Id/Password");
 				}
-				else if(data==1)
+				else if(arr[0]=='admin')
 				{
 					$("#email").val('');
 					$("#password").val('');
 					window.location.href="\index.php";
 				}
-				else if(data=='2')
+				else if(arr[0]=='active' && arr[1]=='call-center')
+				{
+					$("#email").val('');
+					$("#password").val('');
+					window.location.href="\callcenterreport.php";
+				}
+				else if(arr[0]=='active' && arr[1]=='levy')
+				{
+					$("#email").val('');
+					$("#password").val('');
+					window.location.href="report.php";
+				}
+				else if(arr[0]=='active' && arr[1]=='secreteriat')
+				{
+					$("#email").val('');
+					$("#password").val('');
+					window.location.href="report.php";
+				}
+				else if(arr[0]==2)
 				{
 					$("#msg").html("Your Account is Deactive");
 				}	

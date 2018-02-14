@@ -31,7 +31,7 @@
 			
 		}
 		
-		
+		$result=array();
 			if($email=$email_id && $pwd=$psw)
 			{
 			    if($status=='active' or $status=='admin')
@@ -40,15 +40,19 @@
 				 $_SESSION['id']=$user_id;
 				 $_SESSION['type']=$user_type;
 				 $_SESSION['status']=$status;
-				 echo '1';
+				 array_push($result,$status,$user_type);
+				 echo json_encode($result);
+				 
 				}
 				else
 				{
-					echo "2";
+					array_push($result,2);
+				 echo json_encode($result);
 				}
 			}else
 			{
-				echo '0';		
+				array_push($result,0);
+				 echo json_encode($result);	
 			
 			}
 		

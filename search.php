@@ -82,6 +82,7 @@ include('db/connection.php');
 			<table id="example" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 				<thead>
 					<tr>
+						<th>Name</th>  		
 						<th>Date</th>  		
 						 
 						<th>Description</th> 
@@ -112,11 +113,12 @@ include('db/connection.php');
 						// $que=$que." and staff_id=$name";
 					// }
 					
-					$sel="select * from report_master where staff_id='$name' and DATE(date) between '$fdt' and '$tdt'";
+					$sel="select report_master.*,staff_master.name from report_master inner join staff_master on staff_master.id=report_master.staff_id where staff_id='$name' and DATE(date) between '$fdt' and '$tdt'";
 					foreach($dbh->query($sel) as $row)
 					{
 						echo "<tr>";
-						echo "<td>".date('F d, Y h:i:s A',strtotime($row['date']))."</td>";
+						echo "<td>".$row['name']."</td>";
+						echo "<td>".date('F d, Y h:i:s A l',strtotime($row['date']))."</td>";
 						
 						echo "<td>".$row['note']."</td>";
 						

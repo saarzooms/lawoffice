@@ -55,12 +55,13 @@ if($user_status=='admin')
 {
 ?>
    <div id="dl_data" class="col-md-8">
-   <h2>Today Report Of Mine </h3>
+   <h2>Today All Staff Reports </h3>
 			<table id="" class="table table-striped table-bordered table-hover display" cellspacing="0" width="100%">
 				<thead>
 					<tr>
 						<th>Staff Name</th> 
 						 <th>Note</th>
+						 <th>Date</th>
 					</tr>
 				</thead>
 			   <tbody id="t_body">
@@ -72,6 +73,7 @@ if($user_status=='admin')
 						echo "<tr>";
 						echo "<td>".$row['name']."</td>";
 						echo "<td>".$row['note']."</td>";
+						echo "<td>".date('F d, Y h:i:s A l',strtotime($row['date']))."</td>";
 						echo "</tr>";
 					}
 				?>
@@ -87,6 +89,7 @@ if($user_status=='admin')
 						<th>Staff Name</th> 
 						 <th>Cust_Called_No</th>
 						 <th>Note</th>
+						 <th>Date</th>
 						
 					</tr>
 				</thead>
@@ -100,6 +103,7 @@ if($user_status=='admin')
 						echo "<td>".$row['name']."</td>";
 						echo "<td>".$row['cust_called_no']."</td>";
 						echo "<td>".$row['note']."</td>";
+						echo "<td>".date('F d, Y h:i:s A l',strtotime($row['date']))."</td>";
 						echo "</tr>";
 					}
 				?>
@@ -120,6 +124,7 @@ if($user_status=='admin')
 						 <th>Payment Deadline</th>
 						 <th>Doc Status</th>
 						 <th>Note</th>
+						 <th>Date</th>
 						 
 						
 					</tr>
@@ -149,6 +154,7 @@ if($user_status=='admin')
 						<td><?php echo $row['payment_deadline']; ?></td>
 						<td><?php echo $sts; ?></td>
 						<td><?php echo $row['note']; ?></td>
+						<td><?php echo date('F d, Y h:i:s A l',strtotime($row['date']))?></td>
 						</tr><?php
 				}
 				?>
@@ -181,7 +187,7 @@ if($user_status=='admin')
 	
 	<script>
 	$(document).ready(function() {
-    $('table.display').DataTable();
+    $('table.display').DataTable({pageLength: 100});
   });
 	</script>
     <!-- Custom Theme JavaScript -->
