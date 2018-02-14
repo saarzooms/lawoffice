@@ -100,6 +100,7 @@ include('db/connection.php');
 								<tr>
 									<th>Staff Name</th> 
 									 <th>Note</th>
+									 <th>Date</th>
 								</tr>
 							</thead>
 						   <tbody id="t_body">
@@ -111,6 +112,7 @@ include('db/connection.php');
 									echo "<tr>";
 									echo "<td>".$row['name']."</td>";
 									echo "<td>".$row['note']."</td>";
+									echo "<td>".date('F d, Y h:i:s A l',strtotime($row['date']))."</td>";
 									echo "</tr>";
 								}
 							?>
@@ -126,6 +128,7 @@ include('db/connection.php');
 									<th>Staff Name</th> 
 									 <th>Cust_Called_No</th>
 									 <th>Note</th>
+									 <th>Date</th>
 									
 								</tr>
 							</thead>
@@ -139,6 +142,7 @@ include('db/connection.php');
 									echo "<td>".$row['name']."</td>";
 									echo "<td>".$row['cust_called_no']."</td>";
 									echo "<td>".$row['note']."</td>";
+									echo "<td>".date('F d, Y h:i:s A l',strtotime($row['date']))."</td>";
 									echo "</tr>";
 								}
 							?>
@@ -159,6 +163,7 @@ include('db/connection.php');
 									 <th>Payment Deadline</th>
 									 <th>Doc Status</th>
 									 <th>Note</th>
+									 <th>Date</th>
 									 
 									
 								</tr>
@@ -188,6 +193,7 @@ include('db/connection.php');
 									<td><?php echo $row['payment_deadline']; ?></td>
 									<td><?php echo $sts; ?></td>
 									<td><?php echo $row['note']; ?></td>
+									<td><?php echo date('F d, Y h:i:s A l',strtotime($row['date'])); ?></td>
 									</tr><?php
 							}
 							?>
