@@ -244,6 +244,7 @@ include('db/connection.php');
 								<th>Doc Status</th>
 								<th>Date</th>
 								<th>Note</th>
+								<th>Date</th>
 							</tr>
 						</thead>
 						<tbody id="t_body">

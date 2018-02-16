@@ -106,6 +106,7 @@ else if(isset($_REQUEST['ins_no1']))
 					<td><?php echo $sts; ?></td>
 					<td><?php echo date('d-m-Y',strtotime($row['date'])); ?></td>
 					<td><?php echo $row['note']; ?></td>
+					<td><?php echo date('F d, Y h:i:s A l',strtotime($row['date'])); ?></td>
 					
 				</tr>
 			<?php	
