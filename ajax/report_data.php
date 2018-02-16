@@ -77,34 +77,44 @@ $i++;
 else if(isset($_REQUEST['ins_no1']))
 {
 	$ins_no1=$_REQUEST['ins_no1'];
-	$sel1="select payment_master.*,staff_master.name,institution_master.institution_name from `payment_master` inner join staff_master on staff_master.id=payment_master.user_id inner join institution_master on payment_master.institution_id=institution_master.institution_number where payment_master.institution_id='$ins_no1'";
-	foreach($dbh->query($sel1) as $row)
+	$ver_ins="select count(institution_number) from institution_master where institution_number='$ins_no1'";
+	if($dbh->query($ver_ins)==true)
 	{
-		$sts=$row['institution_doc_status'];
-		if($sts=='1')
-		{
-			$sts="open";
-		}
-		else
-		{
-			$sts="close";
-		}
-		?>
-			<tr>
-								
-				<td><?php echo $row['name']; ?></td>
-				<td><?php echo $row['institution_id']; ?></td>
-				<td><?php echo $row['institution_name']; ?></td>
-				<td><?php echo $row['total_payment']; ?></td>
-				<td><?php echo $row['money_received']; ?></td>
-				<td><?php echo $sts; ?></td>
-				<td><?php echo date('d-m-Y',strtotime($row['date'])); ?></td>
-				<td><?php echo $row['note']; ?></td>
-				
-			</tr>
-		<?php	
-	}
+		
 	
+		$sel1="select payment_master.*,staff_master.name,institution_master.institution_name from `payment_master` inner join staff_master on staff_master.id=payment_master.user_id inner join institution_master on payment_master.institution_id=institution_master.institution_number where payment_master.institution_id='$ins_no1'";
+		
+		foreach($dbh->query($sel1) as $row)
+		{
+			$sts=$row['institution_doc_status'];
+			if($sts=='1')
+			{
+				$sts="open";
+			}
+			else
+			{
+				$sts="close";
+			}
+			?>
+				<tr>
+									
+					<td><?php echo $row['name']; ?></td>
+					<td><?php echo $row['institution_id']; ?></td>
+					<td><?php echo $row['institution_name']; ?></td>
+					<td><?php echo $row['total_payment']; ?></td>
+					<td><?php echo $row['money_received']; ?></td>
+					<td><?php echo $sts; ?></td>
+					<td><?php echo date('d-m-Y',strtotime($row['date'])); ?></td>
+					<td><?php echo $row['note']; ?></td>
+					
+				</tr>
+			<?php	
+		}
+	}
+	else
+	{
+		echo 0;
+	}
 }	
 else if(isset($_REQUEST['sec']))
 {	
@@ -145,5 +155,82 @@ else if(isset($_REQUEST['sec']))
 	}
 	
 }
+else if(isset($_REQUEST['rep0']))
+{
+	$s_id=$_SESSION['id'];
+	$fdt=date("Y-m-d");
+								$sel="select report_master.*,staff_master.name from report_master inner join staff_master on staff_master.id=report_master.staff_id where report_master.staff_id='$s_id' and DATE(report_master.date)='$fdt' ";
+								foreach($dbh->query($sel) as $row)
+								{
+									echo "<tr>";
+									echo "<td>".$row['name']."</td>";
+									echo "<td>".$row['note']."</td>";
+									echo "<td>".date('F d, Y h:i:s A l',strtotime($row['date']))."</td>";
+									echo "</tr>";
+								}
+						
+}
+else if(isset($_REQUEST['rep1']))
+{
+	$s_id=$_SESSION['id'];
+	$fdt=date("Y-m-d");
+								$sel="select report_master.*,staff_master.name from report_master inner join staff_master on staff_master.id=report_master.staff_id where DATE(report_master.date)='$fdt' ";
+								foreach($dbh->query($sel) as $row)
+								{
+									echo "<tr>";
+									echo "<td>".$row['name']."</td>";
+									echo "<td>".$row['note']."</td>";
+									echo "<td>".date('F d, Y h:i:s A l',strtotime($row['date']))."</td>";
+									echo "</tr>";
+								}
+						
+}
+else if(isset($_REQUEST['rep2']))
+{
+	$s_id=$_SESSION['id'];
+	$fdt=date("Y-m-d");
+								$sel="select how_many_customers_were_called.*,staff_master.name from how_many_customers_were_called inner join staff_master on staff_master.id=how_many_customers_were_called.staff_id where how_many_customers_were_called.staff_id='$s_id' and DATE(how_many_customers_were_called.date)='$fdt'";
+								foreach($dbh->query($sel) as $row)
+								{
+									echo "<tr>";
+									echo "<td>".$row['name']."</td>";
+									echo "<td>".$row['cust_called_no']."</td>";
+									echo "<td>".$row['note']."</td>";
+									echo "<td>".date('F d, Y h:i:s A l',strtotime($row['date']))."</td>";
+									echo "</tr>";
+								}
 
+}
+else if(isset($_REQUEST['rep3']))
+{
+	$s_id=$_SESSION['id'];
+	$fdt=date("Y-m-d");
+
+								$sel="select payment_master.*,staff_master.name,institution_master.institution_name from `payment_master` inner join staff_master on staff_master.id=payment_master.user_id inner join institution_master on payment_master.institution_id=institution_master.institution_number where payment_master.user_id='$s_id' and DATE(payment_master.date)='$fdt'";
+								foreach($dbh->query($sel) as $row)
+								{
+									$sts='';
+									if($row['institution_doc_status']=='1')
+									{
+										$sts="open";
+									}
+									else
+									{
+										$sts="close";
+									}
+									?>
+									<tr>
+									<td><?php echo $row['name']; ?></td>
+									<td><?php echo $row['institution_id']; ?></td>
+									<td><?php echo $row['institution_name']; ?></td>
+									<td><?php echo $row['total_payment']; ?></td>
+									<td><?php echo $row['money_received']; ?></td>
+									<td><?php echo $row['payment_deadline']; ?></td>
+									<td><?php echo $sts; ?></td>
+									<td><?php echo $row['note']; ?></td>
+									<td><?php echo date('F d, Y h:i:s A l',strtotime($row['date'])); ?></td>
+									</tr><?php
+							}
+						
+}
 ?>

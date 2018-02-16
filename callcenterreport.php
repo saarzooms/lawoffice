@@ -5,6 +5,7 @@ include('db/connection.php');
 ?>
 
 <style>
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/dataTables.bootstrap.min.css" rel="stylesheet">
 <link href="css/buttons.bootstrap.min.css" rel="stylesheet">
 </style>
@@ -18,7 +19,11 @@ include('db/connection.php');
  position:relative;
  z-index:1;
  }
- 
+ div.style1{
+	border-top: 1px solid #8c8b8b;
+}div.style2{
+	border-bottom: 1px solid #8c8b8b;
+}
  </style>
  
   <!-- Date picker -->	
@@ -37,7 +42,7 @@ include('db/connection.php');
 			
 			<div class="box-body" id="dl_details">
 			<form id="rep_form" action="callcentersearch.php" method="post">
-           		<div class="col-md-12">
+           		<div class="col-md-12"><br/>
 					<div class="col-md-3">
 						<label for="staff">Select Staff:</label>
 						<div class="form-group">
@@ -76,8 +81,11 @@ include('db/connection.php');
 					</div>
 							
 				</div>
+				
 			</form>
+			<div class="style1"></div>
 				<div class="col-md-12">
+					<div class="style1"></div>
 					<div class="col-md-4">
 					</div>
 					<div class="col-md-4">
@@ -94,6 +102,10 @@ include('db/connection.php');
 					</div>
 					<div class="col-md-4">
 					</div>
+					
+				</div>
+				<div class="col-md-12">
+					<div class="style2"></div>
 				</div>
 				<form id="customer_called_form" method="post" style="display:none;">
 				<div class="col-md-12">
@@ -239,6 +251,22 @@ include('db/connection.php');
 					</table>
 			</div>
 			
+			<div id="dl_data" class="col-md-8">
+				<h2>My Reports </h3>
+				
+						<table id="" class="table table-striped table-bordered table-hover display" cellspacing="0" width="100%">
+							<thead>
+								<tr>
+									<th>Staff Name</th> 
+									 <th>Note</th>
+									 <th>Date</th>
+								</tr>
+							</thead>
+						   <tbody id="rep0_body">
+							
+						   </tbody>
+						</table><br/>
+			</div>
 			<div id="dl_data" class="col-md-8">
 				<h2>Today All Staff Reports </h3>
 				

@@ -58,6 +58,7 @@ $(document).ready(function(){
 				clear_form();
 				$('#report_form').hide();
 				$('#opt').val(0);
+				load_all_tables();
 			}
 		});
 		
@@ -85,6 +86,7 @@ $(document).ready(function(){
 				clear_form();
 				$('#customer_called_form').hide();
 				$('#opt').val(0);
+				load_all_tables();
 			}
 		});
 		
@@ -119,6 +121,7 @@ $(document).ready(function(){
 				//$('#payment_form').hide();
 				$('#opt').val(0);
 				load_payment_table(ins_no);
+				load_all_tables();
 			}
 		});
 		
@@ -135,6 +138,20 @@ function clear_form()
 function load_all_tables()
 {
 	var rep1='all';
+	
+	$.ajax({
+			
+			type:"post",
+			url:"ajax/report_data.php",
+			data:{'rep0':rep1},
+			success:function(data)
+			{
+				$("#rep0_body").html(data);
+				
+			//alert(data);
+
+			}
+		});
 	$.ajax({
 			
 			type:"post",
