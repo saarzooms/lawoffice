@@ -1,11 +1,12 @@
 $(document).ready(function(){
 var hr=new Date().getHours();	
 var mn=new Date().getMinutes();
-//$('#rep_not_sub').html('');
+//alert('hi');
 var time=(parseInt(hr)*60)+parseInt(mn);
-//alert(parseInt(hr)+" "+parseInt(hr)*60+" "+parseInt(mn)+" "+time);
-if(time<1080)
+alert(parseInt(hr)+" "+parseInt(hr)*60+" "+parseInt(mn)+" "+time);
+if(time<1100)
 {
+	//$('#rep_not_sub').html('');
 	//alert('hi');
 	$('#rep_not_sub').show();
 	myFunction(hr,mn);
@@ -20,7 +21,7 @@ else
 });
 
 function rep_data()
-{
+{//alert("rep_data");
 	$.ajax({
 			
 			type:"post",
@@ -43,6 +44,8 @@ function myFunction(hrs,min)
 	var m=parseInt(min);
 	var inte=((18*60)-(h*60+m))*60;
 	
-	//alert(inte*1000);
-setInterval(rep_data(), inte*1000);
+	//alert(inte);
+//setInterval( alert('interval:'+inte), inte*1000);
+//setTimeout( alert('interval:'+inte), inte*1000);
+var t=window.setTimeout(function(){rep_data()},inte*1000);
 }
