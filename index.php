@@ -164,7 +164,7 @@ if($user_status=='admin')
 						<td><?php echo $row['institution_name']; ?></td>
 						<td><?php echo $row['total_payment']; ?></td>
 						<td><?php echo $row['money_received']; ?></td>
-						<td><?php echo $row['payment_deadline']; ?></td>
+						<td><?php echo date("Y-m-d",strtotime($row['payment_deadline'])); ?></td>
 						<td><?php echo $sts; ?></td>
 						<td><?php echo $row['note']; ?></td>
 						<td><?php echo date('F d, Y h:i:s A l',strtotime($row['date']))?></td>
