@@ -2,11 +2,11 @@
 //---------------------------mysql db connection ------------//
 //include('db/connection.php');
 $hostname='localhost';
-$username='anandjin_vishal';
-$password='@v$123456';
+$username='vbkavsev_report';
+$password='Avsever12*';
 
 try {
-    $dbh = new PDO("mysql:host=$hostname;dbname=anandjin_mis",$username,$password);
+    $dbh = new PDO("mysql:host=$hostname;dbname=vbkavsev_report",$username,$password);
 //    echo 'Connected to Database<br/>';
     }
 catch(PDOException $e)
