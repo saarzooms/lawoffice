@@ -57,7 +57,7 @@ if($user_status=='admin')
    <div id="dl_data" class="col-md-8">
    <div id="rep_not_sub" style="display:none;">
    <h2 style="color:red;">WHO DID NOT WRITE REPORT</h2>
-   <table id="" class="table table-striped table-bordered table-hover display" cellspacing="0" width="30%">
+   <table id="" class="table table-striped table-bordered table-hover" cellspacing="0" width="30%">
 				<thead>
 					<tr>
 						<th>Staff Name</th> 
