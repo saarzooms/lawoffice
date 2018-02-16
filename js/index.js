@@ -3,8 +3,8 @@ var hr=new Date().getHours();
 var mn=new Date().getMinutes();
 //alert('hi');
 var time=(parseInt(hr)*60)+parseInt(mn);
-alert(parseInt(hr)+" "+parseInt(hr)*60+" "+parseInt(mn)+" "+time);
-if(time<1100)
+//alert(parseInt(hr)+" "+parseInt(hr)*60+" "+parseInt(mn)+" "+time);
+if(time<1080)
 {
 	//$('#rep_not_sub').html('');
 	//alert('hi');
