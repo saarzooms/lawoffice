@@ -46,10 +46,16 @@ include('db/connection.php');
 												
 										<select class="form-control input-sm" id="dept" name="dept">
 											<option value="0" selected disabled>---Select Department---</option>
-											<option value="1">call-center</option>
-											<option value="2">levy</option>
-											<option value="3">secreteriat</option>
-										</select>
+							<?php		
+								$sel="select department_name,id from department_master";
+								foreach($dbh->query($sel) as $name)	
+								{
+									echo "<option value=".$name['id'].">".$name['department_name']."</option>";
+						
+								}
+							?>	
+											
+							</select>
 								</div>
 							</div>
 							<div class="col-md-3">
