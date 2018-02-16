@@ -189,7 +189,7 @@ include('db/connection.php');
 						<div class="col-md-3">
 							<div class="form-group">
 								<label for="note">Payment Deadline:</label>
-								<textarea class="form-control" id="deadline" name="deadline" rows="2" required></textarea>
+								<input type="date" class="form-control" id="deadline" name="deadline">
 								</div>
 						</div>		
 						
@@ -205,12 +205,7 @@ include('db/connection.php');
 								</div>
 						</div>
 							
-						<div class="col-md-3">
-							<div class="form-group">
-								<label for="note">Date:</label>
-								<input type="date" class="form-control" id="date3" name="date3">
-								</div>
-						</div>	
+							
 							
 						<div class="col-md-3">
 							<div class="form-group">
@@ -242,7 +237,7 @@ include('db/connection.php');
 								<th>Total Payment</th>
 								<th>Money Rec</th>
 								<th>Doc Status</th>
-								<th>Date</th>
+								<th>Payment Deadline</th>
 								<th>Note</th>
 								<th>Date</th>
 							</tr>

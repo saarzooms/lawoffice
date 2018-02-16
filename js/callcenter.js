@@ -100,7 +100,7 @@ $(document).ready(function(){
 		var money_rec=document.getElementById('money_rec').value;
 		var deadline=document.getElementById('deadline').value;
 		var status=document.getElementById('status').value;
-		var date3=document.getElementById('date3').value;
+		//var date3=document.getElementById('date3').value;
 		var note_pay=document.getElementById('note_pay').value;
 		
 	
@@ -108,7 +108,7 @@ $(document).ready(function(){
 			
 			type:"post",
 			url:"ajax/report_data.php",
-			data:{'ins_no':ins_no,'t_payment':t_payment,'money_rec':money_rec,'deadline':deadline,'status':status,'date3':date3,'note_pay':note_pay},
+			data:{'ins_no':ins_no,'t_payment':t_payment,'money_rec':money_rec,'deadline':deadline,'status':status,'note_pay':note_pay},
 			success:function(data)
 			{
 					//alert(data);

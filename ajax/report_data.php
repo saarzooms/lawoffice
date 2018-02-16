@@ -34,7 +34,7 @@ if(isset($_REQUEST['note']) )
 	
 }
 //add payment form data
-else if(isset($_REQUEST['ins_no']) && isset($_REQUEST['t_payment']) && isset($_REQUEST['money_rec']) && isset($_REQUEST['deadline']) && isset($_REQUEST['status']) && isset($_REQUEST['date3'])&& isset($_REQUEST['note_pay']) )
+else if(isset($_REQUEST['ins_no']) && isset($_REQUEST['t_payment']) && isset($_REQUEST['money_rec']) && isset($_REQUEST['deadline']) && isset($_REQUEST['status']) && isset($_REQUEST['note_pay']) )
 {
 	
 	$ins_no=$_REQUEST['ins_no'];
@@ -43,7 +43,7 @@ else if(isset($_REQUEST['ins_no']) && isset($_REQUEST['t_payment']) && isset($_R
 	$deadline=$_REQUEST['deadline'];
 	$status=$_REQUEST['status'];
 	
-	$date3=$_REQUEST['date3'];
+	$date3=date('Y-m-d h:i:s');
 	//$date3=date("Y-m-d", strtotime($_REQUEST['date3']))+date("h:i:s A");
 	$note_pay=$_REQUEST['note_pay'];
 	
@@ -104,7 +104,7 @@ else if(isset($_REQUEST['ins_no1']))
 					<td><?php echo $row['total_payment']; ?></td>
 					<td><?php echo $row['money_received']; ?></td>
 					<td><?php echo $sts; ?></td>
-					<td><?php echo date('d-m-Y',strtotime($row['date'])); ?></td>
+					<td><?php echo date('d-m-Y',strtotime($row['payment_deadline'])); ?></td>
 					<td><?php echo $row['note']; ?></td>
 					<td><?php echo date('F d, Y h:i:s A l',strtotime($row['date'])); ?></td>
 					
@@ -226,7 +226,7 @@ else if(isset($_REQUEST['rep3']))
 									<td><?php echo $row['institution_name']; ?></td>
 									<td><?php echo $row['total_payment']; ?></td>
 									<td><?php echo $row['money_received']; ?></td>
-									<td><?php echo $row['payment_deadline']; ?></td>
+									<td><?php echo date('d-m-Y',strtotime($row['payment_deadline'])); ?></td>
 									<td><?php echo $sts; ?></td>
 									<td><?php echo $row['note']; ?></td>
 									<td><?php echo date('F d, Y h:i:s A l',strtotime($row['date'])); ?></td>
