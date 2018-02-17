@@ -2,13 +2,14 @@
 SESSION_START();
 $user_id=$_SESSION['id'];
 include('../db/connection.php');
-
+//date_default_timezone_set('Europe/Istanbul');
+date_default_timezone_set('Asia/Kolkata');
 if(isset($_REQUEST['note']) )
 {
 	//echo "data";
 	$note=$_REQUEST['note'];
-	date_default_timezone_set('Asia/Kolkata');
-	$date=date("Y-m-d h:i:s A");
+	
+	$date=date("Y-m-d H:i:s a");
 
 	$ins="INSERT INTO `report_master`(`staff_id`, `note`, `date`) 
 	VALUES ('".$_SESSION['id']."','$note','$date')";	
@@ -22,8 +23,8 @@ if(isset($_REQUEST['note']) )
 	//echo "data";
 	$custno=$_REQUEST['custno'];
 	$note=$_REQUEST['note1'];
-	date_default_timezone_set('Asia/Kolkata');
-	$date=date("Y-m-d h:i:s A");
+	//date_default_timezone_set('Asia/Kolkata');
+	$date=date("Y-m-d H:i:s a");
 
 	$ins="INSERT INTO `how_many_customers_were_called`(`staff_id`, `cust_called_no`, `note`, `date`) 
 	VALUES ('".$_SESSION['id']."','$custno','$note','$date')";	
@@ -43,7 +44,7 @@ else if(isset($_REQUEST['ins_no']) && isset($_REQUEST['t_payment']) && isset($_R
 	$deadline=$_REQUEST['deadline'];
 	$status=$_REQUEST['status'];
 	
-	$date3=date('Y-m-d h:i:s');
+	$date3=date('Y-m-d H:i:s a');
 	//$date3=date("Y-m-d", strtotime($_REQUEST['date3']))+date("h:i:s A");
 	$note_pay=$_REQUEST['note_pay'];
 	
@@ -57,7 +58,7 @@ else if(isset($_REQUEST['ins_no']) && isset($_REQUEST['t_payment']) && isset($_R
 else if(isset($_REQUEST['dl']))
 {	$i=1;
 	$date=date("Y-m-d");
-	$sel="select * from `report_master` where DATE(date)='$date' and staff_id='".$_SESSION['id']."' order by `id`";
+	$sel="select * from `report_master` where DATE(date) ='$date' and staff_id='".$_SESSION['id']."' order by `id`";
 	foreach($dbh->query($sel) as $row)
 	{
 		?>
@@ -66,7 +67,9 @@ else if(isset($_REQUEST['dl']))
 				
 				<td><?php echo 'Today Report'.$i; ?></td>
 				<td><?php echo $row['note']; ?></td>
-				<td><?php echo date("F d, Y h:i:s A l",strtotime($row['date'])); ?></td>
+				
+				<td><?php echo date_format(date_create($row['date']),"F d,Y  h:i:s a l");?></td>
+				
 				
 			</tr>
 		<?php
@@ -106,7 +109,7 @@ else if(isset($_REQUEST['ins_no1']))
 					<td><?php echo $sts; ?></td>
 					<td><?php echo date('d-m-Y',strtotime($row['payment_deadline'])); ?></td>
 					<td><?php echo $row['note']; ?></td>
-					<td><?php echo date('F d, Y h:i:s A l',strtotime($row['date'])); ?></td>
+					<td><?php echo date('F d, Y h:i:s a l',strtotime($row['date'])); ?></td>
 					
 				</tr>
 			<?php	
@@ -129,7 +132,7 @@ else if(isset($_REQUEST['sec']))
 				
 				<td><?php echo $row['name']; ?></td>
 				<td><?php echo $row['note']; ?></td>
-				<td><?php echo date("F d, Y h:i:s A l",strtotime($row['date'])); ?></td>
+				<td><?php echo date("F d, Y h:i:s a l",strtotime($row['date'])); ?></td>
 				
 			</tr>
 		<?php
@@ -148,7 +151,7 @@ else if(isset($_REQUEST['sec']))
 				
 				<td><?php echo $row['name']; ?></td>
 				<td><?php echo $row['note']; ?></td>
-				<td><?php echo date("F d, Y h:i:s A l",strtotime($row['date'])); ?></td>
+				<td><?php echo date("F d, Y h:i:s a l",strtotime($row['date'])); ?></td>
 				
 			</tr>
 		<?php
@@ -166,7 +169,7 @@ else if(isset($_REQUEST['rep0']))
 									echo "<tr>";
 									echo "<td>".$row['name']."</td>";
 									echo "<td>".$row['note']."</td>";
-									echo "<td>".date('F d, Y h:i:s A l',strtotime($row['date']))."</td>";
+									echo "<td>".date('F d, Y h:i:s a l',strtotime($row['date']))."</td>";
 									echo "</tr>";
 								}
 						
@@ -181,7 +184,7 @@ else if(isset($_REQUEST['rep1']))
 									echo "<tr>";
 									echo "<td>".$row['name']."</td>";
 									echo "<td>".$row['note']."</td>";
-									echo "<td>".date('F d, Y h:i:s A l',strtotime($row['date']))."</td>";
+									echo "<td>".date('F d, Y h:i:s a l',strtotime($row['date']))."</td>";
 									echo "</tr>";
 								}
 						
@@ -197,7 +200,7 @@ else if(isset($_REQUEST['rep2']))
 									echo "<td>".$row['name']."</td>";
 									echo "<td>".$row['cust_called_no']."</td>";
 									echo "<td>".$row['note']."</td>";
-									echo "<td>".date('F d, Y h:i:s A l',strtotime($row['date']))."</td>";
+									echo "<td>".date('F d, Y h:i:s a l',strtotime($row['date']))."</td>";
 									echo "</tr>";
 								}
 
@@ -229,7 +232,7 @@ else if(isset($_REQUEST['rep3']))
 									<td><?php echo date('d-m-Y',strtotime($row['payment_deadline'])); ?></td>
 									<td><?php echo $sts; ?></td>
 									<td><?php echo $row['note']; ?></td>
-									<td><?php echo date('F d, Y h:i:s A l',strtotime($row['date'])); ?></td>
+									<td><?php echo date('F d, Y h:i:s a l',strtotime($row['date'])); ?></td>
 									</tr><?php
 							}
 						
